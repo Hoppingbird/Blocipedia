@@ -1,0 +1,10 @@
+<h1>Blocipedia - a wiki for collaboration!</h1>
+<div>  <p>
+  <% if current_user %>
+      Hello <%= current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+  <% else %>
+      <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> or
+      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %> today!
+  <% end %>
+</p>
+</div>
