@@ -10,6 +10,12 @@ gem 'bootstrap-sass'
 
 gem 'figaro', '1.0'
 
+gem 'redcarpet'
+
+gem 'stripe'
+
+gem 'pundit'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use SCSS for stylesheets

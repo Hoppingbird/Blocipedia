@@ -1,0 +1,14 @@
+<div class='container filler-height'>
+  <div class='inner-wrapper'>
+    <h1><%= @wiki.title %></h1>
+    <hr>
+    <p><%= @wiki.body %></p>
+    <hr>
+    <div>
+      <%= link_to 'Edit Wiki', edit_wiki_path(@wiki.id), class: 'btn btn-success' %>
+    </div>
+    <div>
+      <%= link_to 'Delete Wiki', @wiki, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure you want to delete your Wiki'} %>
+    </div>
+  </div>
+</div>
