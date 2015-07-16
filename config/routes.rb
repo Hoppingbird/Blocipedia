@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     root to: 'wikis#index', as: :authenticated_root
   end
 
-  root 'home#index'
+  root to: 'home#index'
 
 
 
