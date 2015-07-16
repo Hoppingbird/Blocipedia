@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
   #   if controller_name == "wikis" && action_name == "new"
   #     flash[:alert] = "You must sign up to create a new wiki."
   #     redirect_to new_user_registration_path
+<<<<<<< HEAD
   #   elsif controller_name == "wikis" && action_name == "edit"
   #     flash[:alert] = "You are not authorized to edit this wiki"
   #     redirect_to root_url
@@ -34,4 +35,11 @@ class ApplicationController < ActionController::Base
   #     redirect_to root_url
   #   end
   # end
+=======
+  #   else
+  #     redirect_to root_url, alert: exception.message
+  #   end
+  # end
+
+>>>>>>> seedingdata
 end
