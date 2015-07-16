@@ -7,7 +7,9 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  rescue_from Pundit::NotAuthorizedError, with: :not_authorized
+  rescue_from Pundit::NotAuthorizedError do |exception|
+    redirect_to root_url, alert: exception.message
+  end
 
   protected
 
@@ -17,13 +19,13 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def not_authorized
-    if controller_name == "wikis" && action_name == "new"
-      flash[:alert] = "You must sign up to create a new wiki."
-      redirect_to new_user_registration_path
-    else
-      redirect_to root_url, alert: exception.message
-    end
-  end
+  # def not_authorized
+  #   if controller_name == "wikis" && action_name == "new"
+  #     flash[:alert] = "You must sign up to create a new wiki."
+  #     redirect_to new_user_registration_path
+  #   else
+  #     redirect_to root_url, alert: exception.message
+  #   end
+  # end
 
 end
