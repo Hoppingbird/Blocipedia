@@ -48,14 +48,14 @@ class ChargesController < ApplicationController
   end
 
 
-
-  def downgrade
-    customer = Stripe::Customer.retrieve(current_user.customer_id)
-
-    charge_id = customer.charges.data.first.id
-    customer.charges.retrieve(charge_id).delete
-    current_user.update_attributes(role: 'standard')
-    current_user.make_wikis_public
-    redirect_to edit_user_registration_path
-  end
+## I have not figured this out yet
+  # def downgrade
+  #   customer = Stripe::Customer.retrieve(current_user.customer_id)
+  #
+  #   charge_id = customer.charges.data.first.id
+  #   customer.charges.retrieve(charge_id).delete
+  #   current_user.update_attributes(role: 'standard')
+  #   current_user.make_wikis_public
+  #   redirect_to edit_user_registration_path
+  # end
 end
