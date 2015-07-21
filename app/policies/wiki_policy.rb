@@ -4,7 +4,7 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def make_private?
-    user_is?('premium', 'admin')
+    user_role?('premium', 'admin')
   end
 
   class Scope

@@ -8,7 +8,14 @@
       <%= f.label :body %>
       <%= f.text_area :body, rows: 12,  class: 'form-control'%>
     </div>
-    <div class='form-group'>
-      <%= f.submit "Save", class: 'btn btn-success' %>
+    <% if policy(@wiki).make_private? %>
+        <div class='form-group'>
+          <%= f.label :public, class: 'checkbox' do %>
+              <%= f.check_box :public, {}, false, true %> Make wiki private
+          <% end %>
+          <div class='form-group'>
+            <%= f.submit "Save", class: 'btn btn-success' %>
+          </div>
+    <% end %>
     </div>
 <% end %>

@@ -1,6 +1,6 @@
 require 'faker'
 
-## Create Users
+## Create users
 5.times do
   user = User.new(
       name: Faker::Name.name,
@@ -11,7 +11,7 @@ require 'faker'
   user.save
 end
 
-## Create admin user for testing
+## Create admin users for testing
 hb = User.new(
     email: 'hopping@gmail.com',
     password: 'helloworld',
@@ -26,7 +26,7 @@ puts "#{User.count} users created."
 ## Create wikis
 20.times do
   wiki = Wiki.create!(
-      user: users.sample,
+      users: users.sample,
       title: Faker::Lorem.sentence,
       body: Faker::Lorem.paragraph
   )
