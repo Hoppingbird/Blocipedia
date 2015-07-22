@@ -1,6 +1,6 @@
 <h1>All Wikis</h1>
 
-<%= link_to 'New Wiki', new_wiki_path, class: 'btn btn-success' %>
+<%= button_to 'Create New Wiki', new_wiki_path, method: :get%>
 
 <% @wikis.each do |wiki| %>
     <div class="media">

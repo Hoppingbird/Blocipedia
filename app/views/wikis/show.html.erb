@@ -3,7 +3,7 @@
     <h1><%= @wiki.title %></h1>
     <hr>
     <%= public_or_private %>
-    <p><%= @wiki.body %></p>
+    <p><%= markdown_to_html(@wiki.body) %></p>
     <hr>
     <div>
       <% if policy(@wiki).edit? %>
