@@ -19,8 +19,12 @@
             <%= link_to current_user.email, edit_user_registration_path %>
             <% if current_user.standard? %>
                 <%= link_to 'Upgrade your Account', new_charge_path %>
+                <% elsif current_user.premium? %>
+                    <%= button_to 'Downgrade', downgrade_path, data: { confirm: "Downgrading will make your private wikis public. Are you sure you want to downgrade?" }, method: :delete %>
+                <% else %>
+                    <%= "Your an Admin" %>
             <% end %>
-            <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+            <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
         <% else %>
             <%= link_to 'Log In', new_user_session_path %> or
             <%= link_to 'Join Us', new_user_registration_path %>
@@ -46,8 +50,8 @@
     </div>
 <% end %>
 <%= yield %>
-<div class='container footer'>
-  <div class='inner-wrapper'>
+<div class=''>
+  <div class=''>
     <footer></footer>
   </div>
 </div>
