@@ -13,6 +13,9 @@
           <%= f.label :public, class: 'checkbox' do %>
               <%= f.check_box :public, {}, false, true %> Make wiki private
           <% end %>
+          <div class="form-group">
+            <%= render partial: 'collaborators/form', locals: {f: f, wiki: @wiki} %>
+          </div>
     <% end %>
     <div class='form-group'>
       <%= f.submit "Save", class: 'btn btn-success' %>

@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   rescue_from Pundit::NotAuthorizedError do |exception|
-    redirect_to root_url, alert: "it blowed up!"
+    redirect_to root_url, alert: exception.message
   end
 
   protected
@@ -16,9 +16,5 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :name
   end
-
-  private
-
-
 
 end

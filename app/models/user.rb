@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :wikis, dependent: :destroy
 
-  #has_many :collaborators, through: :wikis
+  has_many :collaborators, through: :wikis
 
   def standard?
     role == 'standard'

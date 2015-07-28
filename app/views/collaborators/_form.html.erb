@@ -1,0 +1,13 @@
+<% if (current_user.premium? && wiki.user == current_user) || current_user.admin? %>
+    <h2>Collaborators</h2>
+    <% @users.each do |user| %>
+        <div class="form-group">
+          <%= user.email %><br>
+          <% if @wiki %>
+              <%= link_to "Delete", collaborator_path(wiki_id: @wiki.id, user_id: user.id), method: :delete, class: 'btn btn-danger' %>
+          <!--<%# else %>-->
+              <%= link_to "Add", collaborators_path(wiki_id: @wiki.id, user_id: user.id), method: :post, class: 'btn btn-success' %>
+          <% end %>
+        </div>
+    <% end %>
+<% end %>

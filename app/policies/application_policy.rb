@@ -51,11 +51,6 @@ class ApplicationPolicy
     end
   end
 
-  def owned_by?
-    return false if record.user.nil?
-    return false unless user.present?
-    record.user == user
-  end
 
   def user_role?(*roles)
     user.present? && roles.any? { |role| user.send(:"#{role}?") }

@@ -1,13 +1,18 @@
 <div class=''>
   <div class=''>
-    <h1><%= @wiki.title %></h1>
+    <h1><%= markdown_to_html(@wiki.title) %></h1>
     <hr>
     <%= public_or_private %>
+    <br/>
+    <%= 'Collaborators? '%> <%= has_collaborators %>
     <p><%= markdown_to_html(@wiki.body) %></p>
     <hr>
     <div>
       <% if policy(@wiki).edit? %>
         <%= link_to 'Edit Wiki', edit_wiki_path(@wiki.id), class: 'btn btn-success' %>
+      <% end%>
+      <% if policy(@wiki).edit? %>
+          <%= link_to 'Add Collaborators', edit_wiki_path(@wiki), class: 'btn btn-success' %>
       <% end%>
     </div>
     <div>
